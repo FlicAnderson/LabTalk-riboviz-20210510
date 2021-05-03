@@ -10,6 +10,34 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+      $('slide:not(.title-slide, .backdrop, .segue)').append('<footer label=\"bit.ly/Rmarkdown-and-output"></footer>');    
+    })
+</script>
+
+<style>
+  footer:after {
+    content: attr(label);
+    font-size: 12pt;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    line-height: 1.9;
+  }
+</style>
+
+<style type="text/css">
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+</style>
+
+
+# TITLE: Workflow management systems & setting up Rmarkdown reports
+
 ## HOW TO (RE-)USE THIS MATERIAL
 
 This is a `.html` presentation created in `R Markdown` with `ioslides`. 
@@ -32,6 +60,157 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 
 # Intro:
 
+## RiboViz
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+## Ribosome Profiling Data
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
 ## Ribosome Profiling Method
 
-## RiboViz
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Workflow Management Systems
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+
+## Nextflow
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Rmarkdown 
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+
+## Rmarkdown Outputs
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+
+## Shiny
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz HTML output 
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Shiny output 
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Initial Attempts (HTML)
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Initial Attempts (Shiny)
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+## Next Attempts 
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## The Solution (HTML)
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+
+## The Solution (Shiny)
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Summary / Lessons Learned
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
