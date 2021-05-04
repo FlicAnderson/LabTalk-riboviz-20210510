@@ -77,7 +77,11 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 
 ## Ribosome Profiling Method
 
-
+<div class="centered">
+```{r, out.width = "575"}
+knitr::include_graphics("")
+``` 
+</div>
 
 <div class="notes">
 ... slide notes ...
@@ -209,6 +213,34 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 ## Summary / Lessons Learned
 
 
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Thanks/Acknowledgements
+
+riboviz is a BBSRC-NSF funded collaborative project: 
+
+
+* **The Wallace Lab** - *University of Edinburgh*:  
+Edward Wallace, Emma MacKenzie, Sophie Winterbourne + past students (Ania Kurowska, Siyin Xue)  
+* **The Shah Lab** -  *Rutgers University*:  
+Premal Shah, John Favate, Alex Cope, Peter Tilton  
+* **The Lareau Lab** - *University of California, Berkeley*:  
+Liana Lareau, Amanda Mok, Vikram Shivakumar  
+* **EPCC** - *University of Edinburgh*:  
+Kostas Kavousannakis, Mike Jackson, Junchen Liu  
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+# Questions?
 
 
 <div class="notes">
