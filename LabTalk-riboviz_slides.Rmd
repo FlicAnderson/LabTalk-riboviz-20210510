@@ -96,8 +96,8 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 ## Riboviz Workflow: Inputs
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_inputs.png")
 ``` 
 </div>
 
@@ -109,8 +109,8 @@ knitr::include_graphics("")
 ## Riboviz Workflow: Processing
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_processing-aligned.png")
 ``` 
 </div>
 
@@ -122,8 +122,8 @@ knitr::include_graphics("")
 ## Riboviz Workflow: Processing
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_processing-ribogrid.png")
 ``` 
 </div>
 
@@ -135,8 +135,8 @@ knitr::include_graphics("")
 ## Riboviz Workflow: Analysis
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_analysis.png")
 ``` 
 </div>
 
@@ -148,8 +148,8 @@ knitr::include_graphics("")
 ## Riboviz Workflow: Outputs (NEW)
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+#knitr::include_graphics("")
 ``` 
 </div>
 
@@ -161,8 +161,8 @@ knitr::include_graphics("")
 ## Riboviz Workflow: Visualization (NEW)
 
 <div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("")
+```{r, out.width = "800"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_visualization.png")
 ``` 
 </div>
 
