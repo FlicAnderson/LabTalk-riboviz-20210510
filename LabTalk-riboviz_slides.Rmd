@@ -69,7 +69,12 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 
 ## Ribosome Profiling Data
 
+* Looking for 3-NT periodicity: ribosomes moving along transcript 1 codon at a time  
 
+* Most reads map to coding regions (98.8% in Ingolia et al. 2009)  
+* Reasonable read-lengths (e.g. know should look for appx ~28-30NT)  
+
+* Looking for most reads to be in one frame
 
 <div class="notes">
 ... slide notes ...
@@ -78,7 +83,20 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 ## Ribosome Profiling Method
 
 <div class="centered">
-```{r, out.width = "575"}
+```{r, out.width = "700"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/Ingolia2014_polysomes-to-footprints.png")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Workflow: Inputs
+
+<div class="centered">
+```{r, out.width = "700"}
 knitr::include_graphics("")
 ``` 
 </div>
@@ -87,6 +105,70 @@ knitr::include_graphics("")
 ... slide notes ...
 </div>
 
+
+## Riboviz Workflow: Processing
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Workflow: Processing
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Workflow: Analysis
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Workflow: Outputs (NEW)
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Workflow: Visualization (NEW)
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("")
+``` 
+</div>
+
+<div class="notes">
+... slide notes ...
+</div>
 
 ## Workflow Management Systems
 
