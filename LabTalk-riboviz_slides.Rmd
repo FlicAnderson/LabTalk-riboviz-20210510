@@ -182,7 +182,9 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 
 ## Nextflow
 
-
+* what is it
+* why do we use it?
+* what was the reasoning of switching to this from python/bash?
 
 
 <div class="notes">
