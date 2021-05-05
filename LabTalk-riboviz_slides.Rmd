@@ -175,7 +175,11 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 
 
 <div class="notes">
-... slide notes ...
+
+My colleagues involved on riboviz wrote a paper on how we selected the right workflow management system for the project: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008622  
+
+
+
 </div>
 
 
@@ -250,7 +254,13 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 
 
 <div class="notes">
-... slide notes ...
+
+Looping through code blocks - but this ran calculation code twice - not efficient
+
+Figuring out how to get the parameters passed in correctly from 'outside' + how to set default params.
+
+How to run from commandline? This was needed before it'd be integratable w/ Nextflow
+
 </div>
 
 
