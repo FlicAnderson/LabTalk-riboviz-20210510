@@ -371,12 +371,22 @@ Think of a script which runs lots of separate functions to do different data ana
 
 ## Nextflow
 
-Nextflow 
+* parallelism - processes are run as soon as their required input is there - no hanging around for unrelated tasks to finish! 
+* can run a pipeline on local computer vs compute cluster without tweaking it  
+* lets you re-run the pipeline from the last successful point if it stops
+* simple syntax so you can re-use existing scripts
+* you can use containerisation (such as docker/singularity) and conda
 
-* 
+
+<div class="notes"> 
+ 
+Nextflow connects 'processes' (the steps or tasks) according to their outputs and inputs to other processes. 
+ 
+Nextflow combines a **runtime environment** (the stuff that runs other stuff) and a **domain specific language** (a language which is specific to a particular type of task or activity, and not really intended for use outside it's area).
+
+DSL: html is a DSL for web pages for example, SQL for databases. 
 
 
-<div class="notes">
 
 * what is it
 * why do we use it?
@@ -393,7 +403,10 @@ Nextflow
 
 
 <div class="notes">
-... slide notes ...
+
+Benefits
+
+
 </div>
 
 
