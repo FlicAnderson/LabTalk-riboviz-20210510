@@ -1,5 +1,5 @@
 ---
-title: "Lab Talk - Riboviz"
+title: "Lab Talk - Riboviz - Putting the 'viz' back into 'riboviz': connecting Rmarkdown, Shiny and Nextflow"
 author: "Flic Anderson"
 date: "10/05/2021"
 output: 
@@ -36,7 +36,39 @@ slides > slide:not(.nobackground):after {
 </style>
 
 
-# TITLE: Workflow management systems & setting up Rmarkdown reports
+# *Putting the 'viz' back into 'riboviz':* connecting Rmarkdown, Shiny and Nextflow
+
+<div class="notes">
+
+Bio: 
+
+Flic Anderson is a Research Assistant in Bioinformatics in the Wallace Lab (within the Institute for Cell Biology) at the University of Edinburgh. The Wallace Lab works to understand how translation works within cells (particularly of fungi) and what factors control and regulate protein synthesis. 
+
+Flic is part of the development team for the 'riboviz' open source software package for processing and analysis of ribosome profiling data, working with colleagues from EPCC (University of Edinburgh) to make the codebase more robust & sustainable.   
+
+With a background in Ecology and Botany (previously a Research Assistant at the Royal Botanic Garden Edinburgh), Flic has worked with a wide range of types of biological data using different software tools and programming languages (particularly R) for the last 8 years, and found herself drawn towards bioinformatics and research software engineering. 
+
+Flic is a member of the Edinburgh Carpentries and a certified Carpentries instructor in foundational coding and data science skills for researchers. 
+
+
+Title: 
+
+Putting the 'viz' back into 'riboviz': connecting Rmarkdown, Shiny and Nextflow
+
+
+Abstract:  
+
+'riboviz' is an open source software package for processing and analysing ribosome profiling (RNA sequence) data.
+
+This talk will briefly cover the implementation of an Rmarkdown HTML output report and Shiny app for data visualisation of ribosome profiling datasets, added as part of development efforts to make riboviz more user-friendly and effective.  
+
+Flic will describe the initial approach and pitfalls encountered while developing the new visualisation features, and discuss integrating the visualisation side of riboviz with the recently implemented workflow management system (Nextflow) riboviz has moved to.  
+
+Including a short primer on what Workflow Management Systems such as Nextflow 'do' and why they're useful for complex data pipelines, and details on how to get Rmarkdown HTML reports to play nicely as part of a Nextflow workflow. 
+
+
+</div>
+
 
 ## HOW TO (RE-)USE THIS MATERIAL
 
@@ -84,15 +116,22 @@ Robust & reliable code gives more confidence in results
 
 ## Features of Ribosome Profiling Data
 
-* Looking for 3-NT periodicity: ribosomes moving along transcript 1 codon at a time  
+* Looking for **3-nucleotide periodicity**: ribosomes moving along mRNA transcript 1 codon (3 nucleotides) at a time  
 
-* Most reads map to coding regions (98.8% in Ingolia et al. 2009)  
-* Reasonable read-lengths (e.g. know should look for appx ~28-30NT)  
+* Most reads **map to coding regions** (98.8% in Ingolia et al. 2009)  
+* Reasonable read-lengths (e.g. should look for **~28-30NT**)  
 
-* Looking for most reads to be in one frame
+* Looking for most reads to be **in one frame**  
+
+
+<font size="2">Ingolia et al. 2009 - "Genome-wide analysis in vivo of translation with nucleotide resolution using ribosome profiling", doi: 10.1126/science.1168978</font>
 
 <div class="notes">
-... slide notes ...
+
+Ingolia et al. 2009 - Science 324(5924):218-23 "Genome-wide analysis in vivo of translation with nucleotide resolution using ribosome profiling", doi: 10.1126/science.1168978.
+
+28-30NT due to the 'width' of the ribosome as this is what 'protected' the mRNA from the nucleases in the experiment's library preparation steps.
+
 </div>
 
 ## RPF Data & Reading Frame 
@@ -100,14 +139,29 @@ Robust & reliable code gives more confidence in results
 
 <div class="centered">
 ```{r, out.width = "700"}
-knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/Ingolia2014_polysomes-to-footprints.png")
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-output_frame.png")
 ``` 
 </div>
 
-<div class="notes">
-Reading Frame: https://www.ncbi.nlm.nih.gov/Class/MLACourse/Original8Hour/Genetics/readingframe.html
+Many riboviz output plots let us examine these features.  
 
-Data: Guydosh & Green (2014). “Dom34 rescues ribosomes in 3' untranslated regions.” Cell. 156 (5): 950-62. doi: 10.1016/j.cell.2014.02.006.
+
+<font size="2">Reading Frame: https://www.ncbi.nlm.nih.gov/Class/MLACourse/Original8Hour/Genetics/readingframe.html; Data: Guydosh & Green (2014). doi: 10.1016/j.cell.2014.02.006.</font>
+
+
+<div class="notes">
+
+Ribosome profiling data is really useful for investigating translational mechanics particularly because of the information it provides about the active open reading frame!
+
+Because a codon is 3 nucleotides, where a ribosome 'starts' reading the mRNA will affect what's translated. 
+
+Can locate the start codon ‘AUG’ (from annotation position information from a .gff or sequence info) & determine what should be the reading frame based on that. 
+
+Can determine which reading frame(s) are being actively translated from the counts of reads sequenced which match each frame. Can look at if this is altered by particular characteristics of the gene or sequence for example.
+
+Outputs like these help users determine whether the data looks as expected (assists QC).  
+
+Data: Guydosh & Green (2014). “Dom34 rescues ribosomes in 3' untranslated regions.” Cell. 156 (5): 950-62. doi: 10.1016/j.cell.2014.02.006.   
 
 </div>
 
@@ -117,10 +171,11 @@ Data: Guydosh & Green (2014). “Dom34 rescues ribosomes in 3' untranslated regi
 ## Ribosome Profiling Method
 
 <div class="centered">
-```{r, out.width = "700"}
+```{r, out.width = "650"}
 knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/Ingolia2014_polysomes-to-footprints.png")
 ``` 
 </div>
+<font size="2">Ingolia et al. 2009</font>
 
 <div class="notes">
 ... slide notes ...
@@ -256,6 +311,15 @@ My colleagues involved on riboviz wrote a paper on how we selected the right wor
 
 ## Rmarkdown Outputs
 
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz HTML output 
+
+
 Aiming for: all the plots for each sample in separate .html pages, to allow scrolling through & easier comparison.  
 
 Keeping the plots for 1 sample on 1 page also makes it easier to keep track of which sample's outputs you're looking at & speeds up the QC process after a riboviz run has completed.
@@ -269,18 +333,6 @@ Also helps for communicating the outputs between colleagues - can just refer som
 
 * imagine having 4 or 5 pdf windows open, none of which have the sample_id (sample name) in their filename, or saved in the .pdf...
 
-</div>
-
-
-
-
-## Riboviz HTML output 
-
-
-
-
-<div class="notes">
-... slide notes ...
 </div>
 
 
