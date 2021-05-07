@@ -86,9 +86,13 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 
 ## Outline: 
 
-* option
-* option
-* option
+* riboviz & ribosome profiling refresher
+* what on earth is a WfMS? 
+* Nextflow in a nutshell  
+* Rmarkdown and out...(puts)
+* what I tried (aka the looping horror)
+* what actually worked... 
+* what next? 
 
 # Intro:
 
