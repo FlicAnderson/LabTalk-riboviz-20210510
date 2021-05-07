@@ -62,12 +62,27 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 
 ## RiboViz
 
+**Riboviz processes & analyses ribosome profiling data**  
+
+Ribosome profiling data helps unlock details of **active translation**:
+
+  * *mechanics of translation*  
+  * *regulation methods*   
+  * *translational efficiency*  
+
+Developing/improving riboviz = **more researcher time** for biological questions
+
+Robust & reliable code
 
 <div class="notes">
-... slide notes ...
+
+more researcher time: rather than tinkering with pipelines & bespoke analysis code…  
+
+Robust & reliable code gives more confidence in results
+
 </div>
 
-## Ribosome Profiling Data
+## Features of Ribosome Profiling Data
 
 * Looking for 3-NT periodicity: ribosomes moving along transcript 1 codon at a time  
 
@@ -79,6 +94,25 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 <div class="notes">
 ... slide notes ...
 </div>
+
+## RPF Data & Reading Frame 
+
+
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/Ingolia2014_polysomes-to-footprints.png")
+``` 
+</div>
+
+<div class="notes">
+Reading Frame: https://www.ncbi.nlm.nih.gov/Class/MLACourse/Original8Hour/Genetics/readingframe.html
+
+Data: Guydosh & Green (2014). “Dom34 rescues ribosomes in 3' untranslated regions.” Cell. 156 (5): 950-62. doi: 10.1016/j.cell.2014.02.006.
+
+</div>
+
+
+
 
 ## Ribosome Profiling Method
 
@@ -128,7 +162,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 </div>
 
 <div class="notes">
-... slide notes ...
+...
 </div>
 
 
@@ -141,20 +175,33 @@ knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-
 </div>
 
 <div class="notes">
-... slide notes ...
+
+One main R script which generates these plots & various analysis data; this is run for each sample, outputting .tsv and .pdf files into a folder for each sample within the overall dataset output folder.
+
 </div>
 
 
-## Riboviz Workflow: Outputs (NEW)
+## Riboviz Workflow: .PDF Outputs
 
 <div class="centered">
 ```{r, out.width = "800"}
-#knitr::include_graphics("")
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/riboviz-workflow_outputs.png")
 ``` 
-</div>
+</div>  
+
 
 <div class="notes">
-... slide notes ...
+
+Original outputs: .tsv data files and .pdf plot images for each sample. 
+
+Dataset shown: B-Sc_2012: Saccharomyces cerevisiae yeast RPF samples at a range of meiotic phases from: High-resolution View of the Yeast Meiotic Program Revealed by Ribosome Profiling, Brar et al. 2012.
+
+Files present: ‘all’ - not all organisms have the same amount of data availale, and so information on tRNAs for example isn't available for all species, or isn't currently in a riboviz friendly format.  
+
+This means we have some 'conditional' outputs. Not all taxa will have all of these outputs, which is something we've had to handle in the code. 
+
+Yaml config file available at https://github.com/riboviz/example-datasets
+
 </div>
 
 
@@ -209,36 +256,25 @@ My colleagues involved on riboviz wrote a paper on how we selected the right wor
 
 ## Rmarkdown Outputs
 
+Aiming for: all the plots for each sample in separate .html pages, to allow scrolling through & easier comparison.  
 
+Keeping the plots for 1 sample on 1 page also makes it easier to keep track of which sample's outputs you're looking at & speeds up the QC process after a riboviz run has completed.
 
-
-<div class="notes">
-... slide notes ...
-</div>
-
-
-
-## Shiny
-
-
+Also helps for communicating the outputs between colleagues - can just refer someone to 1 file, rather than multiple files or putting together a zip file.
 
 
 <div class="notes">
-... slide notes ...
+
+* .pdf files for separate plots are useful, but having the same kind of plot (for example 3-nt periodicity) spread through separate folders means it's harder to compare between samples.  Aiming to improve it a little  - it would be easier to click between tabs at least!
+
+* imagine having 4 or 5 pdf windows open, none of which have the sample_id (sample name) in their filename, or saved in the .pdf...
+
 </div>
+
+
 
 
 ## Riboviz HTML output 
-
-
-
-
-<div class="notes">
-... slide notes ...
-</div>
-
-
-## Riboviz Shiny output 
 
 
 
@@ -264,14 +300,6 @@ How to run from commandline? This was needed before it'd be integratable w/ Next
 </div>
 
 
-## Initial Attempts (Shiny)
-
-
-
-
-<div class="notes">
-... slide notes ...
-</div>
 
 ## Next Attempts 
 
@@ -293,15 +321,6 @@ How to run from commandline? This was needed before it'd be integratable w/ Next
 </div>
 
 
-
-## The Solution (Shiny)
-
-
-
-
-<div class="notes">
-... slide notes ...
-</div>
 
 
 ## Summary / Lessons Learned
@@ -335,6 +354,48 @@ Kostas Kavousannakis, Mike Jackson, Junchen Liu
 
 
 # Questions?
+
+
+<div class="notes">
+... slide notes ...
+</div> 
+
+
+
+
+## Shiny
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+## Riboviz Shiny output 
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
+
+
+## Initial Attempts (Shiny)
+
+
+
+
+<div class="notes">
+... slide notes ...
+</div>   
+
+## The Solution (Shiny)
+
+
 
 
 <div class="notes">
