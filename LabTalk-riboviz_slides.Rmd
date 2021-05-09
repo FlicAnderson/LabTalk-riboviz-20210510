@@ -606,7 +606,7 @@ Re-using our original plotting functions!
 
 ## The Solution 
 
-Edit main analysis script Nextflow process generateStatsFigs:  
+Edit Nextflow process generateStatsFigs (runs main analysis script):  
  - create new .tsv files holding the data objects required to generate the output plots  
 
 Create new Nextflow process for staticHTML task:   
@@ -617,7 +617,6 @@ Create new Nextflow process for staticHTML task:
 Nextflow handles passing in the correct conditional files to the .Rmd render command, and that .Rmd script plots the correct 'conditional' plots by reading certain parameters in the main configuration script file.
 
  
-
 <div class="notes">
 
 Handling conditionals in Nextflow has been a little trickier than expected.    
@@ -625,6 +624,59 @@ Handling conditionals in Nextflow has been a little trickier than expected.
 staticHTML generates the text for the render command based on whether .tsv files are present or not, and contains the correct file paths (including the sample name folder)
 
 </div>
+
+
+## staticHTML Nextflow process
+<div class="centered">
+```{r, out.width = "700"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/nextflow-process_staticHTML.png")
+``` 
+</div>  
+
+<div class="notes">
+
+The process is run once per sample listed in the config yaml file 
+
+Line 643: starts the Nextflow process definition  
+Line 644: sets output location for files  
+Line 645-648: where the input files for the process get listed (these determine when the process is run)  
+Line 650: tells Nextflow what the outputs of this process are (1x file w/ filename in this format)  
+Line 652: this process is only run if run_static_html is TRUE in the main config yaml file   
+Line 654-666: builds 'script' from: the rmarkdown::render() command which runs the Rmarkdown file & adds in the correct parameters (config file, sample_id, and the correct .tsv files according to conditionals set by the config file parameters)  
+Line 668: actually executes the script (runs the render command w/ correct parameters)
+
+
+process staticHTML {
+    publishDir "${params.dir_out}/${sample_id}" 
+    input:
+      * config yaml file  
+      * sample_id  
+      * .tsv files for generating plots  
+    output:
+      file "${sample_id}_output_report.html"  
+    when:
+      params.run_static_html  
+    shell:
+      script = "rmarkdown::render('${projectDir}/rmarkdown/AnalysisOutputs.Rmd',"
+      script += "params = list("
+      script += "yamlfile='\$PWD/${config_file_yaml}', "
+      script += "sampleid='!{sample_id}', "
+      script += "three_nucleotide_periodicity_data_file = '$PWD/${sample_nt3_periodicity_tsv}', "
+        (+ some other files)
+      if (is_features_file) {
+          script += ", sequence_features_file='$PWD/${sample_sequence_features_tsv}' "
+      }
+        (+ some other conditional files)
+      script += "), "
+      script += "output_format = 'html_document', "
+      script += "output_file = '$PWD/${sample_id}_output_report.html')"
+      """
+      Rscript -e "${script}"
+      """
+} 
+
+</div>
+
 
 
 ## AnalysisOutputs.Rmd 
@@ -679,60 +731,6 @@ Line 186:  rmarkdown block for 3n5 plot: echo=FALSE argument for the block means
 Line 189: use existing Plot function (loaded earlier in the .Rmd via source()) to plot the data loaded in from the .tsv
 
 </div>
-
-
-## staticHTML Nextflow process
-<div class="centered">
-```{r, out.width = "700"}
-knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/nextflow-process_staticHTML.png")
-``` 
-</div>  
-
-
-<div class="notes">
-
-The process is run once per sample listed in the config yaml file 
-
-Line 643: starts the Nextflow process definition  
-Line 644: sets output location for files  
-Line 645-648: where the input files for the process get listed (these determine when the process is run)  
-Line 650: tells Nextflow what the outputs of this process are (1x file w/ filename in this format)  
-Line 652: this process is only run if run_static_html is TRUE in the main config yaml file   
-Line 654-666: builds 'script' from: the rmarkdown::render() command which runs the Rmarkdown file & adds in the correct parameters (config file, sample_id, and the correct .tsv files according to conditionals set by the config file parameters)  
-Line 668: actually executes the script (runs the render command w/ correct parameters)
-
-
-process staticHTML {
-    publishDir "${params.dir_out}/${sample_id}" 
-    input:
-      * config yaml file  
-      * sample_id  
-      * .tsv files for generating plots  
-    output:
-      file "${sample_id}_output_report.html"  
-    when:
-      params.run_static_html  
-    shell:
-      script = "rmarkdown::render('${projectDir}/rmarkdown/AnalysisOutputs.Rmd',"
-      script += "params = list("
-      script += "yamlfile='\$PWD/${config_file_yaml}', "
-      script += "sampleid='!{sample_id}', "
-      script += "three_nucleotide_periodicity_data_file = '$PWD/${sample_nt3_periodicity_tsv}', "
-        (+ some other files)
-      if (is_features_file) {
-          script += ", sequence_features_file='$PWD/${sample_sequence_features_tsv}' "
-      }
-        (+ some other conditional files)
-      script += "), "
-      script += "output_format = 'html_document', "
-      script += "output_file = '$PWD/${sample_id}_output_report.html')"
-      """
-      Rscript -e "${script}"
-      """
-} 
-
-</div>
-
 
 
 ## HTML Report Example
