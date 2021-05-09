@@ -604,7 +604,7 @@ Re-using our original plotting functions!
 </div>
 
 
-## The Solution (HTML)
+## The Solution 
 
 Edit main analysis script Nextflow process generateStatsFigs:  
  - create new .tsv files holding the data objects required to generate the output plots  
@@ -626,6 +626,59 @@ staticHTML generates the text for the render command based on whether .tsv files
 
 </div>
 
+
+## AnalysisOutputs.Rmd 
+
+<div class="centered">
+```{r, out.width = "1000"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/rmarkdown_final-yaml.png")
+``` 
+</div>  
+
+<div class="centered">
+```{r, out.width = "1000"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/rmarkdown_final-read-yaml.png")
+``` 
+</div>  
+
+<div class="notes">
+
+Line 5: specify document type (HTML)  
+Line 6-9: table of contents  
+Line 10: tells .Rmd which parameters to expect, and gives default values for each parameter  
+
+Line 38: using {yaml} package, read contents of the config yaml file into yaml object; using 'params$' notation to pull this parameter info from what was fed into the .Rmd during the rmarkdown::render() command
+
+</div>
+
+
+## AnalysisOutputs.Rmd 
+
+<div class="centered">
+```{r, out.width = "1000"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/rmarkdown_final-load-tsv.png")
+``` 
+</div>  
+
+<div class="centered">
+```{r, out.width = "1000"}
+knitr::include_graphics("https://raw.githubusercontent.com/FlicAnderson/LabTalk-riboviz-20210510/main/images/rmarkdown_final-plot.png")
+``` 
+</div>  
+
+* easy to read, easy to tell which functions are used 
+* not repeating blocks of code or double-calculating  
+* generates required output!
+
+<div class="notes">
+
+Line 127:  reading in the .tsv file holding data required for 3nt periodicity plot, pulling file info from parameter with 'param$'  
+
+Line 186:  rmarkdown block for 3n5 plot: echo=FALSE argument for the block means "DON'T show the code, but DO run it"  
+
+Line 189: use existing Plot function (loaded earlier in the .Rmd via source()) to plot the data loaded in from the .tsv
+
+</div>
 
 
 ## staticHTML Nextflow process
@@ -701,7 +754,9 @@ Same as .pdf version previously output, but now have it clearly associated w/ pr
 
 Although you CAN call chunks of code external to an R Markdown script, you probably shouldn't... 
 
-Getting file paths right when passing files in as parameters to things is often tricky, but Nextflow makes it reasonably easy once you've got the 'knack' 
+Getting file paths right when passing files in as parameters to things is often tricky, but Nextflow makes it reasonably easy once you've got the 'knack'  
+
+Working on adding this feature has been another reminder of how important it is to make sure your function only does 1 thing & is modular, as well as why it's vital to stick to "don't repeat yourself (or others!)"
 
 
 <div class="notes">
