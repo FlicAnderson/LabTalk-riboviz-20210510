@@ -762,6 +762,28 @@ Working on adding this feature has been another reminder of how important it is 
 </div>
 
 
+## Takeaway for lab folks:  
+
+WfMS are good, and very useful, but if you're not building really complex stacks of code, don't worry too much about them. 
+
+Instead, think smaller: 
+
+You can get many of the same benefits (increased reproducibility, ease of use, shareability) with a script if you're not already using one. 
+
+Data analysis is a great example: Rmarkdown documents for data exploration and analysis!
+
+Tips for getting your code to work on your colleague's system! 
+ - version control!
+ - remember which packages/software are required & may need to be installed 
+ - use package::function() in R :) 
+ - dependencies might still sink you, but there is hope (containerisation, rEnv, being specific about which version of everything YOU used etc)  
+ - be clear about file management (where do you expect the data files to be saved? did you write that down?)
+
+
+<div class="notes">
+... slide notes ...
+</div>
+
 ## Thanks/Acknowledgements
 
 riboviz is a BBSRC-NSF funded collaborative project: 
@@ -806,29 +828,7 @@ If you realise you're spending more time on managing 'task admin' in your develo
 </div>
 
 
-## Takeaway for lab folks:  
 
-WfMS are good, and very useful, but if you're not building really complex stacks of code, don't worry too much about them. 
-
-Instead, think smaller: 
-
-You can get many of the same benefits (increased reproducibility, ease of use, shareability) with a script if you're not already using one. 
-
-Data analysis is a great example: Rmarkdown documents for data exploration and analysis!
-
-Tips for getting your code to work on your colleague's system! 
- - version control!
- - remember which packages/software are required & may need to be installed 
- - use package::function() in R :) 
- - dependencies might still sink you, but there is hope (containerisation, rEnv, being specific about which version of everything YOU used etc)  
- - be clear about file management (where do you expect the data files to be saved? did you write that down?)
-
-
-
-
-<div class="notes">
-... slide notes ...
-</div>
 
 
 ## Shiny
