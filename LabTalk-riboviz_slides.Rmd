@@ -375,11 +375,15 @@ Think of a script which runs lots of separate functions to do different data ana
 * can run a pipeline on local computer vs compute cluster without tweaking it  
 * lets you re-run the pipeline from the last successful point if it stops
 * simple syntax so you can re-use existing scripts
-* you can use containerisation (such as docker/singularity) and conda
+* you can use containerisation (such as docker/singularity) and conda to manage your environment
 
 
-<div class="notes"> 
- 
+<div class="notes">  
+
+https://www.nextflow.io/
+
+Find out more: Nextflow Carpentries style workshop (alpha!) lesson materials under development https://carpentries-incubator.github.io/workflows-nextflow/
+
 Nextflow connects 'processes' (the steps or tasks) according to their outputs and inputs to other processes. 
  
 Nextflow combines a **runtime environment** (the stuff that runs other stuff) and a **domain specific language** (a language which is specific to a particular type of task or activity, and not really intended for use outside it's area).
@@ -387,7 +391,7 @@ Nextflow combines a **runtime environment** (the stuff that runs other stuff) an
 DSL: html is a DSL for web pages for example, SQL for databases. 
 
 
-
+Answer: 
 * what is it
 * why do we use it?
 * what was the reasoning of switching to this from python/bash?
@@ -402,9 +406,24 @@ DSL: html is a DSL for web pages for example, SQL for databases.
 
 
 
-<div class="notes">
 
-Benefits
+<div class="notes">  
+
+https://r4ds.had.co.nz/r-markdown.html
+
+R Markdown creates a notebook-style document which lets you combine text, run R code, and generate plots & results which are integrated into the document.  
+
+Great for collaborating: share your code & your conclusions with collaborators, who can then re-run and edit the analysis.  
+
+Can create automatically-generated reports based on updated data (handy to show decision-makers)
+
+Lots of output formats: .pdf, word files, slideshows (like this one!)
+
+Benefits:  
+
+* integrated w/ RStudio, so easy to develop & run  
+* code 'chunks' 
+
 
 
 </div>
