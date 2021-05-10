@@ -71,9 +71,9 @@ Including a short primer on what Workflow Management Systems such as Nextflow 'd
 
 This is a `.html` presentation created in `R Markdown` with `ioslides`. 
 
-(It's been written in a [.Rmd](http://rmarkdown.rstudio.com) file, and we generated .html slides by 'knitting' it in Rstudio.)
+(It's been written in a [.Rmd](http://rmarkdown.rstudio.com) file, and I generated .html slides by 'knitting' it in Rstudio.)
 
-You can check out the code used to make these slides at the [Workshop repo](https://github.com/FlicAnderson/20201127-gitflow-workshop) on Github, and adapt it for your own presentations if you like - we've got a MIT Licence on the repo, which means: 
+You can check out the code used to make these slides at the [Talk repo](https://github.com/FlicAnderson/LabTalk-riboviz-20210510) on Github, and adapt it for your own presentations if you like - there's a MIT Licence on the repo, which means: 
 
 *"Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source."*
 
@@ -89,7 +89,7 @@ Source: [tl;drLegal](https://tldrlegal.com/license/mit-license)
 * what on earth is a WfMS? 
 * Nextflow in a nutshell  
 * Rmarkdown and out...(puts)  
-* the goal: html output for samples
+* the aim: HTML output for samples
 * what I tried (aka the looping horror)
 * what actually worked... 
 * what next? 
@@ -304,7 +304,7 @@ This was a dataset selected by Ania Kurowska (undergrad project in the Wallace l
 </div>
 
 
-## Riboviz Workflow: Visualization (NEW)
+## Riboviz Workflow: + Visualization
 
 <div class="centered">
 ```{r, out.width = "800"}
